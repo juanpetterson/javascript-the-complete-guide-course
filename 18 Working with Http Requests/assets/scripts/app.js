@@ -66,12 +66,11 @@ async function fetchPosts() {
       listElement.firstElementChild.remove();
     }
 
-    const responseData = await sendHttpRequest(
-      'GET',
+    const response = await axios.get(
       'https://jsonplaceholder.typicode.com/posts'
     );
 
-    const listOfPosts = responseData;
+    const listOfPosts = response.data;
 
     listOfPosts.forEach(post => {
       const postEl = document.importNode(postTemplate.content, true);
@@ -82,6 +81,7 @@ async function fetchPosts() {
     });
   } catch (error) {
     alert(error.message);
+    console.log(error.response);
   }
 }
 
@@ -101,22 +101,20 @@ async function createPost(title, content) {
   formData.append('userId', userId);
   // formData.append('someFile', 'the file' ,'photo.png');
 
-  const responseData = await sendHttpRequest(
-    'POST',
+  const response = await axios.post(
     'https://jsonplaceholder.typicode.com/posts',
-    formData
+    post
   );
 
-  console.log(responseData);
+  console.log(response);
 }
 
 async function deletePost(id) {
-  const responseData = await sendHttpRequest(
-    'DELETE',
+  const response = await axios.delete(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
 
-  console.log(responseData);
+  console.log(response);
 }
 
 function removeFromUI(postItem) {
