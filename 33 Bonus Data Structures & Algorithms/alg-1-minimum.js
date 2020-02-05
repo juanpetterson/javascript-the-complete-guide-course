@@ -1,5 +1,5 @@
-// BEST CASE [1] => 0(1)
-// WORST CASE [3,1] => 0(n)
+// BEST CASE [1] => O(1)
+// WORST CASE [3,1] => O(n)
 function getMin(numbers) {
   if (!numbers.length) {
     // 1 execution
@@ -19,10 +19,10 @@ function getMin(numbers) {
   return currentMin; // 1 execution
 }
 
-// Total = n => Linear Time Complexity => 0(n)
-// BEST CASE [1,2,3] => 0(n^2)
-// WORST CASE [3,2,1] => 0(n^2)
-// AVERAGE CASE [?,?,?] => 0(n^2)
+// Total = n => Linear Time Complexity => O(n)
+// BEST CASE [1,2,3] => O(n^2)
+// WORST CASE [3,2,1] => O(n^2)
+// AVERAGE CASE [?,?,?] => O(n^2)
 function getMin2(numbers) {
   if (!numbers.length) {
     throw new Error('Should not be an empty array!');
@@ -49,7 +49,7 @@ function getMin2(numbers) {
   return numbers[0];
 }
 
-// Quadratic Time Complexity => n * n => 0(n^2)
+// Quadratic Time Complexity => n * n => O(n^2)
 
 const testNumbers = [3, 1, 2, 8, 4, 7, 6, 0];
 
